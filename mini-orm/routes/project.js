@@ -27,7 +27,7 @@ router.post('/',(req, res)=>{
     })
 })
 
-router.get('/edit/:id/', (req, res) => {
+router.get('/update/:id/', (req, res) => {
   Model_project.findById(req.params.id)
     .then(project => {
       res.render('project_edit_form', {data_project :  project});
@@ -37,7 +37,7 @@ router.get('/edit/:id/', (req, res) => {
     })
 })
 
-router.post('/edit/:id/',(req, res)=>{
+router.post('/update/:id/',(req, res)=>{
   let data_project = {
     nama: `${req.body.nama}`,
     status: `${req.body.status}`,
