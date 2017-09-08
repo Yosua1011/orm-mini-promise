@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SUPERVISOR</title>
+  </head>
+  <body>
+    <h1>SUPERVISOR</h1>
+    <hr>
+    <h2>Data Supervisor</h2>
+      <tr>
+        <th>Id</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+      <% data.forEach(row => { %>
+      <tr>
+        <td><%=row.id%></td>
+        <td><%=row.nama%></td>
+        <td><%=row.email%></td>
+        <td></td>
+        <td>
+          <a href="/supervisor/update/<%=row.id%>">EDIT</a> |
+          <a href="/supervisor/delete/<%=row.id%>">DELETE</a> |
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <hr>
+    <h2>Add New Supervisor</h2>
+    <form class="" action="/supervisor" method="POST">
+      <input type="text" name="nama" value="" placeholder="nama">
+      <input type="text" name="email" value="" placeholder="email">
+      <input type="submit" value="SAVE">
+    </form>
+  </body>
+</html>
