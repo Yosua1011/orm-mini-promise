@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('db/database.db')
-let Model_project = require('./project.js')
+// let Model_project = require('./project.js')
 
 class Supervisor {
   constructor(obj) {
@@ -38,8 +38,8 @@ class Supervisor {
       let data = `INSERT INTO supervisor (nama,email)
               VALUES
               (
-                '${data_supervisor.nama}',
-                '${data_supervisor.email}'
+                '${this.nama}',
+                '${this.email}'
               )`
       db.run(data, (err) => {
         if(!err) {
@@ -54,8 +54,8 @@ class Supervisor {
   static update() {
     return new Promise((resolve,reject)=> {
       let data = {
-        $nama: `${data_supervisor.nama}`,
-        $email: `${data_supervisor.email}`
+        $nama: `${data.nama}`,
+        $email: `${data.email}`
       }
       let sql = `UPDATE supervisor
                   SET nama = $nama,

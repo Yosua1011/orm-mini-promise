@@ -23,21 +23,21 @@ router.post('/',(req, res)=>{
       res.redirect('/supervisor')
     })
     .catch(err => {
-      res.render('error_page')
+      console.log(err)
     })
 })
 
-router.get('/edit/:id/', (req, res) => {
+router.get('/update/:id/', (req, res) => {
   Model_supervisor.findById(req.params.id)
     .then(supervisor => {
-      res.render('contacts_edit_form', {data :  supervisor});
+      res.render('supervisor_edit_form', {data :  supervisor});
     })
     .catch(err => {
       console.log(err)
     })
 })
 
-router.post('/edit/:id/',(req, res)=>{
+router.post('/update/:id/',(req, res)=>{
   let data_supervisor = {
     nama: `${req.body.nama}`,
     email: `${req.body.email}`,
@@ -45,7 +45,7 @@ router.post('/edit/:id/',(req, res)=>{
 
   Model_supervisor.update(data_supervisor)
     .then(string_success => {
-      res.redirect('/contacts')
+      res.redirect('/supervisor')
     })
     .catch(err => {
       console.log(err)

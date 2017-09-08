@@ -6,6 +6,7 @@
   <body>
     <h1>PROJECT</h1>
       <hr>
+      <a href="/"> Back To Home </a>
       <h2>Data Project</h2>
         <tr>
           <th>Id</th>
@@ -14,7 +15,7 @@
           <th>Supervisor</th>
           <th>Action</th>
         </tr>
-        <% data_project.forEach(row => { %>
+        <% data.forEach(row => { %>
         <tr>
           <td><%=row.id%></td>
           <td><%=row.nama%></td>
@@ -32,7 +33,7 @@
         <input type="text" name="nama" value="" placeholder="nama">
         <input type="text" name="status" value="" placeholder="status">
         <select class="" name="supervisor_id">
-          <% data_supervisor.forEach(row => { %>
+          <% data.forEach(row => { %>
           <option value="<%=row.id%>"><%=row.nama%></option>
           <% }) %>
         </select>
