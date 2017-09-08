@@ -9,16 +9,19 @@
       <h2>Data Project</h2>
         <tr>
           <th>Id</th>
-
+          <th>Nama</th>
+          <th>Status</th>
+          <th>Supervisor</th>
           <th>Action</th>
         </tr>
-        <% data_supervisor.forEach(row => { %>
+        <% data_project.forEach(row => { %>
         <tr>
           <td><%=row.id%></td>
-
+          <td><%=row.nama%></td>
+          <td><%=row.supervisor_id%></td>
           <td>
-            <a href="/supervisor/edit/<%=row.id%>">EDIT</a>
-            <a href="/supervisor/delete/<%=row.id%>">DELETE</a>
+            <a href="/project/edit/<%=row.id%>">EDIT</a>
+            <a href="/project/delete/<%=row.id%>">DELETE</a>
           </td>
         </tr>
         <% }) %>
@@ -27,7 +30,7 @@
       <h2>Add New Supervisor</h2>
       <form class="" action="/project" method="POST">
         <input type="text" name="nama" value="" placeholder="nama">
-
+        <input type="text" name="status" value="" placeholder="status">
         <select class="" name="supervisor_id">
           <% data_supervisor.forEach(row => { %>
           <option value="<%=row.id%>"><%=row.nama%></option>
